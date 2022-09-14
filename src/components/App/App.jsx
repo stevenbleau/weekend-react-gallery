@@ -29,10 +29,8 @@ function App() {
     });
   }
 
+
   //PROP TO GALLERYLIST
-
-
-
     return (
       <div className="App">
         <header className="App-header">

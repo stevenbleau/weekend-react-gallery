@@ -3,6 +3,7 @@ import {useState} from 'react';
 function GalleryItem({id, path, description, likes}) {
     
     const [toggle, setToggle] = useState(true);
+    let [likesCount, setLikesCount] = useState(0);
 
     const toggleImage = () => {
         console.log('in toggleImage');
@@ -17,11 +18,33 @@ function GalleryItem({id, path, description, likes}) {
         }
     }
 
+    const displayLikes = () => {
+        console.log('in displayLikes')
+        return <div>
+            <h3>Likes: {likesCount}</h3>
+            <button onClick={addLike}>Like</button> 
+        </div>
+
+    }
+    const addLike = () => {
+
+        
+        console.log('ADDING LIKE');
+        setLikesCount(likesCount + 1);
+        console.log('LIKES = ',likesCount);
+
+        displayLikes();
+    }
+
+
 
 
     return <div>
             {toggleImage()}
-            <h3>likes: {likes}</h3>  
+            {displayLikes()}
+            {/* {displayLikes()} */}
+            {/* <h3>Likes: {likes}</h3>  */}
+            {/* <button onClick={addLike}>Like</button>  */}
     </div>
 
 
